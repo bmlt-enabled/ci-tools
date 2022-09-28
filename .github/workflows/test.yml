@@ -11,7 +11,7 @@ jobs:
 
       - name: Publish Release to Latest WP
         id: publish_latest
-        uses: bmlt-enabled/wordpress-releases-github-action@v1.0.2
+        uses: bmlt-enabled/wordpress-releases-github-action@v1.0.3
         with:
           id: crouton
 
