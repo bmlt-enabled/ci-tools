@@ -39,4 +39,5 @@ lint-fix:  ## PHP Lint Fix
 
 .PHONY: docker-publish-base
 docker-publish-base:  ## Builds Base Docker Image
-	docker buildx build --platform linux/amd64,linux/arm64/v8 -f docker/Dockerfile-ci-base-7.4 docker/ -t $(BASE_IMAGE):$(BASE_IMAGE_TAG) --push
+	docker buildx build --platform linux/amd64,linux/arm64/v8 -f docker/Dockerfile-ci-base-7.4 docker/ -t $(BASE_IMAGE):7.4 --push
+    docker buildx build --platform linux/amd64,linux/arm64/v8 -f docker/Dockerfile-ci-base-8.2 docker/ -t $(BASE_IMAGE):8.2 --push

@@ -7,6 +7,12 @@ on:
 jobs:
   build-ci-base:
     runs-on: ubuntu-22.04
+    matrix:
+      php:
+        - "7.4"
+        - "8.0"
+        - "8.1"
+        - "8.2"
     permissions:
       contents: read
       packages: write
@@ -27,11 +33,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Base
+      - name: Build and push Base ${{ matrix.php }}
         uses: docker/build-push-action@v3
         with:
           context: ./docker
-          file: ./docker/Dockerfile-ci-base-7.4
+          file: ./docker/Dockerfile-ci-base-${{ matrix.php }}
           platforms: linux/amd64,linux/arm64/v8
-          tags: bmltenabled/bmlt-ci-base:7.4-latest
+          tags: bmltenabled/bmlt-ci-base:${{ matrix.php }}-latest
           push: true
