@@ -1,5 +1,7 @@
 name: BMLT CI Docker Builds
-#
+
+on: [push]
+
 #on:
 #  schedule:
 #    - cron:  '0 12 * * 0'
