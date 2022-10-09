@@ -8,7 +8,9 @@ on: [push]
 
 jobs:
   build-ci-base:
-    runs-on: ubuntu-22.04
+  runs-on: ubuntu-22.04
+  strategy:
+    fail-fast: false
     matrix:
       php:
         - "7.4"
